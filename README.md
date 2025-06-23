@@ -29,6 +29,80 @@ A solução integra três serviços principais da AWS de forma desacoplada:
 
  ---
 
+## 👨‍💻 Código da Aplicação
+
+Abaixo estão os códigos completos para o backend e frontend, prontos para copiar e colar.
+
+### Backend (`lambda_function.py`)
+Este código Python é implantado na função Lambda e contém toda a lógica do jogo.
+
+```python
+import random
+
+def lambda_handler(event, context):
+    # Número pensado pela máquina
+    numero_secreto = random.randint(1, 10)
+    
+    # Obtendo o palpite dos parâmetros da URL
+    palpite = int(event['queryStringParameters']['palpite'])
+    
+    # Verificando o palpite e definindo a resposta
+    if palpite == numero_secreto:
+        resposta = f"Parabéns! Você acertou o número {numero_secreto}! 😎🤜🤛"
+    elif palpite == numero_secreto - 1 or palpite == numero_secreto + 1:
+        resposta = f"Quase! O número era {numero_secreto}. Tente novamente! 🤓"
+    else:
+        resposta = f"Incorreto, o correto é {numero_secreto}. Vou pensar em outro número. 😋"
+
+    # Retornando a resposta no formato esperado pelo API Gateway
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Methods': 'GET,OPTIONS'
+        },
+        'body': f'{{"resultado": "{resposta}"}}'
+    }
+```
+
+### Frontend (`index.html`)
+Este é o código para a página web que é hospedada no S3. Ele contém a estrutura (HTML), o estilo (CSS) e o script (JavaScript) para chamar a API.
+
+```html
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo de Adivinhação</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+      }
+      .container {
+        text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+      }
+      h2 {
+        color: #ffdd57;
+      }
+      input[type="number"] {
+        padding: 10px;
+        width: 80%;
+```
+ ---
+
 ## 🚀 Demonstração
 
 O GIF abaixo mostra o site em funcionamento, com o usuário interagindo e recebendo as respostas processadas pela arquitetura serverless.
