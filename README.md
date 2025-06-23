@@ -47,13 +47,11 @@ A seguir estão as capturas de tela que comprovam a configuração de cada compo
 ![Bucket S3](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20Bucket%20S3%20-%20Artur%20Costa.jpeg)
 
 **2. Função Lambda com a Lógica do Jogo**
-* **Arquivo:** `Print - Função Lambda - Artur Costa.jpeg`
 * **Descrição:** Configuração da função `LambdaGame-arturcosta` com o código Python que implementa a lógica do jogo.
 
 ![Função Lambda](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20Fun%C3%A7%C3%A3o%20Lambda%20-%20Artur%20Costa.jpeg)
 
 **3. API Gateway com a Rota `/jogo`**
-* **Arquivo:** `Print - API Gateway - Artur Costa.jpeg`
 * **Descrição:** Criação da API e da rota `GET /jogo` para expor a função Lambda ao mundo externo.
 
 ![API Gateway](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20API%20Gateway%20-%20Artur%20Costa.jpeg)
