@@ -2,7 +2,7 @@
 
 Este repositório documenta a criação e implementação de uma aplicação web interativa, o "Jogo de Adivinhação", utilizando uma arquitetura 100% serverless na AWS. Este projeto foi desenvolvido como parte de um laboratório prático da **Escola da Nuvem**.
 
-**Instrutor:** Tomas Alric
+**Instrutor:** Tomas Alric ([@TomasAlric](https://github.com/TomasAlric/TomasAlric))
 **Aluno:** Artur Costa ([@arturcosta86](https://github.com/arturcosta86))
 
 ## 🎯 Visão Geral do Projeto
@@ -27,13 +27,13 @@ A solução integra três serviços principais da AWS de forma desacoplada:
     * **Função:** Ponto de entrada (endpoint) para o backend.
     * **Detalhes:** Uma API RESTful HTTP foi criada com uma rota `GET /jogo`. Essa rota é integrada à função Lambda, passando os parâmetros da requisição e expondo a lógica do backend de forma segura e gerenciável. O CORS foi configurado para permitir que o frontend hospedado no S3 possa chamar a API.
 
-![Arquitetura da Solução](URL_PARA_UM_DIAGRAMA_SIMPLES_SE_TIVER) ---
+ ---
 
 ## 🚀 Demonstração
 
-O vídeo abaixo mostra o site em funcionamento, com o usuário interagindo e recebendo as respostas processadas pela arquitetura serverless.
+O GIF abaixo mostra o site em funcionamento, com o usuário interagindo e recebendo as respostas processadas pela arquitetura serverless.
 
-https://github.com/arturcosta86/aws-serverless-guessing-game/assets/103693439/208889aa-5561-455b-80a5-87bd754b5dfd
+![Jogo de Adivinhação](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/GIF%20do%20Site%20Funcionando%20-%20Artur%20Costa.gif)
 
 ---
 
@@ -42,22 +42,21 @@ https://github.com/arturcosta86/aws-serverless-guessing-game/assets/103693439/20
 A seguir estão as capturas de tela que comprovam a configuração de cada componente da solução na AWS.
 
 **1. Bucket S3 Criado**
-* **Arquivo:** `Print - Bucket S3 - Artur Costa.jpeg`
 * **Descrição:** Criação do bucket `s3-website-arturcosta` para hospedar os arquivos do frontend.
 
-![Bucket S3](Print%20-%20Bucket%20S3%20-%20Artur%20Costa.jpeg)
+![Bucket S3](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20Bucket%20S3%20-%20Artur%20Costa.jpeg)
 
 **2. Função Lambda com a Lógica do Jogo**
 * **Arquivo:** `Print - Função Lambda - Artur Costa.jpeg`
 * **Descrição:** Configuração da função `LambdaGame-arturcosta` com o código Python que implementa a lógica do jogo.
 
-![Função Lambda](Print%20-%20Função%20Lambda%20-%20Artur%20Costa.jpeg)
+![Função Lambda](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20Fun%C3%A7%C3%A3o%20Lambda%20-%20Artur%20Costa.jpeg)
 
 **3. API Gateway com a Rota `/jogo`**
 * **Arquivo:** `Print - API Gateway - Artur Costa.jpeg`
 * **Descrição:** Criação da API e da rota `GET /jogo` para expor a função Lambda ao mundo externo.
 
-![API Gateway](Print%20-%20API%20Gateway%20-%20Artur%20Costa.jpeg)
+![API Gateway](https://github.com/arturcosta86/aws-serverless-guessing-game/blob/main/Print%20-%20API%20Gateway%20-%20Artur%20Costa.jpeg)
 
 ---
 
