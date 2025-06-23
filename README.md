@@ -100,8 +100,70 @@ Este é o código para a página web que é hospedada no S3. Ele contém a estru
       input[type="number"] {
         padding: 10px;
         width: 80%;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+      }
+      button {
+        background-color: #ff6f61;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      #resultado {
+        margin-top: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #ffdd57;
+      }
+      footer {
+        margin-top: 30px;
+        color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Jogo de Adivinhação</h2>
+      <p>Pense em um número de 1 a 10. Tente adivinhar!</p>
+      <input type="number" id="palpite" min="1" max="10" />
+      <button onclick="enviarPalpite()">Enviar</button>
+      <div id="resultado"></div>
+      <footer>
+        <p>Escola da Nuvem💙- Artur Costa</p>
+      </footer>
+    </div>
+
+    <script>
+      function enviarPalpite() {
+        const palpite = document.getElementById("palpite").value;
+        // IMPORTANTE: Substitua a URL abaixo pela URL de invocação da sua API Gateway.
+        const url =
+          "[https://paffiass44.execute-api.us-east-2.amazonaws.com/prod/jogo?palpite=](https://paffiass44.execute-api.us-east-2.amazonaws.com/prod/jogo?palpite=)" +
+          palpite;
+
+        const resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.innerText = "Pensando...";
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            resultadoDiv.innerText = data.resultado;
+          })
+          .catch((error) => {
+            console.error("Erro:", error);
+            resultadoDiv.innerText = "Erro ao comunicar com a API.";
+          });
+      }
+    </script>
+  </body>
+</html>
 ```
- ---
+
+---
 
 ## 🚀 Demonstração
 
